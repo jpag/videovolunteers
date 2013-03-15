@@ -1,0 +1,19 @@
+<div id="user" style="width:600px; 
+					margin:auto; 
+					position:relative; 
+					background-color:#FFFFFF; 
+					border:1px solid #AAA;
+					min-height:500px;
+					margin-top:50px;
+					padding:10px;
+					" >
+
+<?php
+	
+	foreach( $this->message as $key => $value ){
+		echo ' <div>'.$key.' - ' . $value.'</div>';
+	}
+
+?>
+
+</div>

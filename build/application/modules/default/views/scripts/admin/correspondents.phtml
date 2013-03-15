@@ -1,0 +1,125 @@
+<!-- CORRESPONDENTS -->
+<div class="list-container list-correspondents">
+<?php
+	$c = true;
+	
+	if( count($this->list) > 0 ):
+	
+	foreach ($this->list as &$value): ?>
+		<div class="list-content" >
+		    <div class="list-item <?php echo (($c = !$c)?' list-item-odd':'') ?>" id="entry_<?php echo $value['id']; ?>" data-id="<?php echo $value['id']; ?>" >
+		    <div class="list-field title"><h1>NAME</h1><span><?php echo $value['name']; ?></span></div>
+		    <div class="list-field fb"><h1>FB</h1><span><?php echo $value['fbhandle']; ?></span></div>
+		    <div class="list-field twitterhandle"><h1>TWITTER</h1><span><?php echo $value['twitterhandle']; ?></span></div>
+		    <div class="list-field address"><h1>ADDRESS</h1><span><?php echo $value['address']; ?></span></div>
+		    <span class="clear"></span>
+		    </div>
+		    
+		    <div class="edit-box" id="entry_edit_box_<?php echo $value['id']; ?>">
+		    	<div class="btn-ui edit-item" data-id="<?php echo $value['id']; ?>" ></div>
+		    	<div class="btn-ui delete-item" data-id="<?php echo $value['id']; ?>" ></div>
+		    	<span class="clear"></span>
+		    </div>
+		    
+		     <span class="clear"></span>
+		</div>    	    
+<?php 
+	endforeach;
+	
+	else:
+?>
+	No Values found
+<?php
+	endif;
+?>
+
+	<div id="edit" class="container-lightbox" style="display:none;" >
+		<div id="edit-id-input" style="display:none;" >
+			<input value="" >
+		</div>
+		
+		<div id="edit-title-input">
+			<span>Name</span>
+			<input value="" >
+		</div>
+		
+		<div id="edit-fb-input">
+			<span>Facebook</span>
+			<input value="" >
+		</div>
+		
+		<div id="edit-twitterhandle-input">
+			<span>Twitter</span>
+			<input value="" >
+		</div>
+		
+		<div id="edit-address-input">
+			<span>Address</span>
+			<input value="" >
+		</div>
+		
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="SAVE" type="button" >
+			<input class="btn-txt save-cancel" value="CANCEL" type="button" >
+		</div>
+	</div>
+	
+	<div id="confirm-delete" class="container-lightbox" style="display:none;" data-id="" >
+		<div class="message"></div>
+		<div id="btn-container">
+			<input class="btn-txt delete-cancel" value="CANCEL" type="button" >
+			<input class="btn-txt delete-confirm" value="DELETE" type="button" >
+			<span class="clear"></span>
+		</div>
+	</div>
+	
+	<div id="create-new" class="container-lightbox" style="display:none;" >
+		<div class="message">Create a new Correspondent</div>
+		<div class="small-message"></div>
+		
+		<div id="create-title-input" class="form-input" >
+			<span>Full Name</span>
+			<input value="" >
+		</div>
+		
+		<div id="create-fb-input" class="form-input" >
+			<span>Facebook ID/Vanity name (i.e. 'jsmith' )</span>
+			<input value="" >
+		</div>
+		
+		<div id="create-twitterhandle-input" class="form-input" >
+			<span>Twitter User Name (i.e. 'jsmith' remove the @)</span>
+			<input value="" >
+		</div>
+		
+		<div id="create-address-input" class="form-input" >
+			<span>Address (Location)</span>
+			<input value="" >
+		</div>
+		
+		
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="SAVE" type="button" >
+			<input class="btn-txt save-cancel" value="CANCEL" type="button" >
+			<span class="clear"></span>
+		</div>
+		
+	</div>
+	
+	<div id="new-success" class="container-lightbox" style="display:none;" >
+		<div class="message">Successfully Added</div>
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="CONTINUE" type="button" >
+		</div>
+	</div>
+	
+	
+	<div id="loading-content" class="container-lightbox" style="display:none;" >
+		<div class="message">UPDATING</div>
+		<div class="loading-gif"></div>
+	</div>
+	
+	<div id="lightbox" style="display:none;">
+	</div>
+</div>
+

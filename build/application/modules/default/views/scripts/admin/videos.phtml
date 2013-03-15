@@ -1,0 +1,222 @@
+<!-- VIDEO -->
+<div id="list-videos" class="list-container list-videos">
+<script type="text/javascript">
+	var issuesAbreviated = new Array();
+	<?php 
+		
+		for($jsi=0; $jsi < count($this->issueVal); $jsi++){
+			echo 'issuesAbreviated.push("'.$this->issueValAbreviated[$jsi].'");';
+		}
+	?>
+</script>
+<?php
+	$c = true;
+	//echo json_encode($this->correspondentList);
+	if( count($this->list) > 0 ):
+	
+	foreach ($this->list as &$value): ?>
+		<?php
+			$correspondentsName = 'undefined';
+			foreach($this->correspondentList as &$cor_val ){
+			//for($c = 0; $c < count($this->correspondentList); $c++ ){
+				//$cor_val = $this->correspondentList[$c];
+				//echo '<br>'.$value['correspondent_id'].' == '. $cor_val["id"]; 
+				if( $value['correspondent_id'] == $cor_val["id"] ){ 	
+					$correspondentsName = $cor_val['name'];
+					break;
+				}
+			}
+		?>
+	
+		<div class="list-content" >
+		    <div class="list-item <?php 
+		    							echo (($c = !$c)?' list-item-odd':''); 
+		    							echo (($correspondentsName == 'undefined' || $value['issues'] == '000000')?' inactive':'');
+		    							?>" 
+				id="entry_<?php 
+								echo $value['id']; 
+							?>" data-id="<?php 
+												echo $value['id']; 
+										?>" >
+				
+				<div class="btn-ui warning-icon" ><!-- shown only if inactive --></div>
+
+				<div class="list-field youtubeid"><h1>YOUTUBE ID</h1><span><?php echo $value['youtube_id']; ?></span></div>
+		    	<div class="list-field title"><h1>TITLE</h1><span><?php echo $value['title']; ?></span></div>
+		    	<div class="list-field correspondent" data-val="<?php echo $value['correspondent_id']; ?>" ><h1>CORRESPONDENT</h1><span><?php echo $correspondentsName; ?></span></div>
+		    	<div class="list-field issues" data-issues="<?php echo $value['issues'] ?>" ><h1>ISSUES</h1><span>
+		    	<?php 
+		    		$issues = preg_split('//', $value['issues'], -1, PREG_SPLIT_NO_EMPTY);
+		    		$issueString = '';
+		    		for($i = 0; $i < count($issues); $i++){
+		    			//echo '<input type="checkbox" name="" >'
+		    			if( $issues[$i] == 1 ){
+		    				$issueString .= $this->issueValAbreviated[$i].', ';
+		    			}
+		    		} 
+		    		echo rtrim($issueString,', ');
+		    	?>
+		    	</span></div>
+		    	<div class="list-field posted"><h1>POSTED</h1><span><?php echo $value['posted_date']; ?></span></div>
+		    	<span class="clear"></span>
+		    </div>
+		    
+		    <div class="edit-box" id="entry_edit_box_<?php echo $value['id']; ?>">
+		    	<div class="btn-ui edit-item" data-id="<?php echo $value['id']; ?>" ></div>
+		    	<div class="btn-ui delete-item" data-id="<?php echo $value['id']; ?>" ></div>
+		    	<span class="clear"></span>
+		    </div>
+		    
+		     <span class="clear"></span>
+		</div>    
+	    
+<?php 
+	endforeach;
+	
+	else:
+?>
+	No Values found
+<?php
+	endif;
+?>
+
+	<div id="edit" class="container-lightbox" style="display:none;" >
+		<div id="edit-error"></div>
+		<div id="edit-id-input" style="display:none;" >
+			<input value="" >
+		</div>
+		
+		<div id="edit-title-input">
+			<span>Title</span>
+			<input value="" >
+		</div>
+		
+		<div id="edit-youtubeid-input">
+			<span>Youtube ID</span>
+			<input value="" >
+		</div>
+		
+		<div id="edit-correspondent-input">
+			<span>Correspondent</span>
+			<select name="correspondents">
+			<?php foreach($this->correspondentList as &$cor_val ): ?>
+				<option value="<?php echo $cor_val["id"]; ?>" ><?php echo $cor_val["name"]; ?></option>
+			<?php endforeach
+				//add on item selected="selected"
+			?>
+			</select>
+		</div>
+		
+		<div id="edit-posted-input">
+			<span>Date Posted</span>
+			<ul>
+				<li>MONTH <input value="" class="date-input" maxlength="2" onclick="this.value=''" ></li>
+				<li>DAY <input value="" class="date-input" maxlength="2" onclick="this.value=''" ></li>
+				<li>YEAR <input value="" class="date-input" maxlength="4" onclick="this.value=''" ></li>
+			</ul>
+		</div>
+		
+		<div id="edit-issues-input">
+			<span>Issues</span>
+			<ul>
+			<?php
+				for( $ie = 0; $ie < count($this->issueVal); $ie++){
+					echo '<li class="checkboxInput" >';
+					echo '<input type="checkbox" name="'.$this->issueValAbreviated[$ie].'" ><span> '.$this->issueVal[$ie].'</span>';
+					echo '</li>';
+				
+				}
+			?>
+			</ul>
+		</div>
+		
+		
+		
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="SAVE" type="button" >
+			<input class="btn-txt save-cancel" value="CANCEL" type="button" >
+		</div>
+	</div>
+	
+	<div id="confirm-delete" class="container-lightbox" style="display:none;" data-id="" >
+		<div class="message"></div>
+		<div id="btn-container">
+			<input class="btn-txt delete-cancel" value="CANCEL" type="button" >
+			<input class="btn-txt delete-confirm" value="DELETE" type="button" >
+			<span class="clear"></span>
+		</div>
+	</div>
+	
+	<div id="create-new" class="container-lightbox" style="display:none;" >
+		<div class="message">Create a new Correspondent</div>
+		<div class="small-message"></div>
+		
+		<div id="create-title-input" class="form-input" >
+			<span>Title</span>
+			<input value="" >
+		</div>
+		
+		<div id="create-youtubeid-input" class="form-input" >
+			<span>Youtube ID</span>
+			<input value="" >
+		</div>
+		
+		<div id="create-posted-input" class="form-input" >
+			<span>Date Posted</span>
+			<ul>
+				<li>MONTH <input value="" class="date-input" maxlength="2" onclick="this.value=''" ></li>
+				<li>DAY <input value="" class="date-input" maxlength="2" onclick="this.value=''" ></li>
+				<li>YEAR <input value="" class="date-input" maxlength="4" onclick="this.value=''" ></li>
+			</ul>
+		</div>
+		
+		<div id="create-issues-input" class="form-input" >
+			<span>Issues</span>
+			<?php
+				for( $ie = 0; $ie < count($this->issueVal); $ie++){
+					echo '<li class="checkboxInput" >';
+					echo '<input type="checkbox" name="'.$this->issueValAbreviated[$ie].'" ><span> '.$this->issueVal[$ie].'</span>';
+					echo '</li>';	
+				}
+			?>
+		</div>
+		
+		<div id="create-correspondent-input" class="form-input"  >
+			<span>Correspondent </span>
+			<select name="correspondents" >
+				<option value="-1" >-------</option>
+			<?php foreach($this->correspondentList as &$cor_val ): ?>
+				<option value="<?php echo $cor_val["id"]; ?>" ><?php echo $cor_val["name"]; ?></option>
+			<?php endforeach
+				//add on item selected="selected"
+			?>
+			</select>
+		</div>
+		
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="SAVE" type="button" >
+			<input class="btn-txt save-cancel" value="CANCEL" type="button" >
+			<span class="clear"></span>
+		</div>
+		
+	</div>
+	
+	<div id="new-success" class="container-lightbox" style="display:none;" >
+		<div class="message">Successfully Added</div>
+		<div id="btn-container">
+			<input class="btn-txt save-changes" value="CONTINUE" type="button" >
+		</div>
+	</div>
+	
+	
+	<div id="loading-content" class="container-lightbox" style="display:none;" >
+		<div class="message">UPDATING</div>
+		<div class="loading-gif"></div>
+	</div>
+	
+	
+	<div id="lightbox" style="display:none;">
+	</div>
+</div>
+
+

@@ -1,0 +1,112 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="ie ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="ie ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="ie ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<?php echo $this->headTitle() ?>
+	<?php echo $this->headMeta() ?>
+	<?php echo $this->headLink(); ?>
+  	
+</head>
+<body>
+	<div id="adminContainer" >
+	<?php 
+		$login_successful = false;
+		// check user & pwd:
+		if (isset($_SERVER['PHP_AUTH_USER']) && isset($_SERVER['PHP_AUTH_PW'])){
+		
+		    $usr = $_SERVER['PHP_AUTH_USER'];
+		    $pwd = $_SERVER['PHP_AUTH_PW'];
+		
+		    if ($usr == 'vvadmin' && $pwd == '123volunteer'){
+		        $login_successful = true;
+		    }
+		}
+		
+		if (!$login_successful){
+		    // send 401 headers:
+		    // realm="something" will be shown in the login box 
+		    header('WWW-Authenticate: Basic realm="Password Required"');
+		    header('HTTP/1.0 401 Unauthorized');
+		    print "<div style='width:100%; text-align:center;' >LOGIN FAILED</div>\n";
+			die;
+		}
+	?>
+
+	<div id="header">
+		<h2><?php echo $this->action ?></h2>
+		<ul id="navigation">
+			<!-- <li><a href="/admin/index">MAIN ADMIN</a></li> -->
+			<li><a <?php if( ($this->action) == 'correspondents' ) echo "id='disable'"; else echo 'href="/admin/correspondents/"'; ?> >edit correspondents</a></li>
+			<li><a <?php if( ($this->action) == 'videos' ) echo "id='disable'"; else echo 'href="/admin/videos/"' ; ?> >edit videos</a></li>
+		</ul>
+		
+		<?php if( $this->action == 'videos' || $this->action == 'correspondents' ): ?>
+			<ul id="navigation-second-tier">
+				<li id="refreshPage" style="display:none;">REFRESH<div class="btn-ui btn-refreshPage"></div></li>
+				<li id="addentry">ADD<div class="btn-ui add-item" ></div></li>
+			</ul>
+		<?php endif; ?>
+	</div>
+	
+	
+	<?php
+		echo $this->layout()->content;  
+	?>
+	
+	<div id="footer" >
+	
+	<?php 
+		if( $this->action == 'videos' || $this->action == 'correspondents' ){
+			
+			if( ($this->page) > 1 )	
+				echo '<a href="/admin/'.$this->action.'/'.($this->page-1).'" class="previous-page">PREVIOUS PAGE</a>';
+			
+			//echo count($this->list);
+			//echo ' num ' . $this->config->cms->numberPerPage ;
+		
+			if( count($this->list) == $this->config->cms->numberPerPage ) 
+				echo '<a href="/admin/'.$this->action.'/'.($this->page+1).'" class="next-page">NEXT PAGE</a>';
+						
+		}
+	?>
+	</div>
+	
+	
+	
+	</div>
+		
+	<!-- SCRIPTS -->	
+	<?php echo $this->headScript(); ?>	
+	
+	<?php if( $this->action == 'videos' || $this->action == 'correspondents' ): ?>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				cms.init(<?php echo $this->page;?> ,"<?php echo $this->action; ?>");
+				cms.debug = <?php echo ($this->config->debug)?'true':'false'; ?>;
+			});
+			
+		</script>
+	<?php endif; ?>
+	
+	<script type="text/javascript">
+		//UA-32486903-1
+	
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', '<?php echo $this->config->googleAnalytics; ?>']);
+		_gaq.push(['_setDomainName', '<?php echo $this->config->webhost; ?>']);	//gridserver.com
+		_gaq.push(['_trackPageview']);
+
+		(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+
+	</script>
+	
+	<?php 
+		echo $this->render('trackingscript.phtml'); 
+	?>
+
+</body>
+</html>

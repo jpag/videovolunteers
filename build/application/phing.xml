@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<project name="VideoVoices" default="build" basedir=".">
+	<includepath classpath="/vhosts:/usr/share/pear/phing/tasks/ext/phpunit:${php.classpath}" />
+	<taskdef name="zendConfig" classname="ZendConfigTask" />
+	
+	<target name="prepare">
+		<exec command="dirname ${phing.file}" outputProperty="project.basedir" />
+	    <echo msg="${project.basedir}" />
+	    <property name="builddir" value="${project.basedir}/../" override="true" />
+		    
+		<tstamp />
+	</target>
+	
+	<target name="dbdeploy-migrate" depends="prepare">
+		<property name="build.dbdeploy.deployfile" value="${builddir}/dbdeploy/deploy-${DSTAMP}${TSTAMP}.sql" />  
+        <property name="build.dbdeploy.undofile" value="${builddir}/dbdeploy/undo-${DSTAMP}${TSTAMP}.sql" /> 
+        
+        <zendConfig file="${builddir}/application/configs/application.ini" env="${env}" />
+        
+        <dbdeploy  
+            url="mysql:host=${resources.db.params.host};dbname=${resources.db.params.dbname}"
+            userid="${resources.db.params.username}"  
+            password="${resources.db.params.password}"  
+            dir="${builddir}/dbdeploy/deltas"  
+            outputfile="${build.dbdeploy.deployfile}"  
+            undooutputfile="${build.dbdeploy.undofile}" />
+        
+        <exec
+            command="/usr/bin/mysql -h${resources.db.params.host} -u${resources.db.params.username} -p${resources.db.params.password} ${resources.db.params.dbname} &lt; ${build.dbdeploy.deployfile}"
+            dir="${builddir}"
+            checkreturn="true" />
+            
+	</target>
+	
+	<target name="dbdeploy-migrate" depends="prepare">
+	
+	</target>
+	
+	
+	<target name="writable" depends="dbdeploy-migrate">
+	
+	</target>
+
+</project>

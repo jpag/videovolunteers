@@ -1,0 +1,307 @@
+<div id="vvContentHolder" > </div>	
+
+<!-- VIEWS: -->	
+	
+	<script type="text/x-handlebars" data-template-name="vvHeader">
+	<div class="vv-ContentContainer" id="vv-Header">
+		<div class="fixed-width-column" >
+			<div id="vv-Header-content">
+				<img {{bindAttr src="logoUrl"}} >
+				<div id="headerMessage" class="font-subTitle" >
+					{{{copy}}}
+				</div>
+				<div id="fb-like" class="fb-like" data-href="http://www.videovolunteers.org/" data-send="false" data-layout="box_count" data-width="50" data-show-faces="true" data-font="trebuchet ms"></div>
+			</div>
+		</div>
+	</div>
+	</script>
+	
+	
+	<script type="text/x-handlebars" data-template-name="vvVideoView">
+	<div class="vv-ContentContainer" id="vv-Intro" >
+			<div class="middle" >
+				<div class="fixed-width-column" >
+					<div id="introVideoTitle" class="font-title-big" >{{{title}}}</div>
+					<div id="introVideoSubTitle" class="font-subtitle-mini font-italic" >{{{subtitle}}}</div>
+					<div id="introVideo">{{{videoPlayer}}}</div>
+					<div id="introTicker">
+						<div id="message" class="font-subTitle" >{{{tickerCopy}}}</div>
+						<div id="counterContainer" >
+							<div class="moneySymbolBlack" id="counterMoneySymbol"></div>
+							<div id="counter-totalMoney" class="flip-counter" ></div>
+						</div>
+						<div id="counterSubline"></div>
+					</div>
+					<span class="clear"></span>
+				</div>	
+			</div>				
+	</div>
+	</script>
+	
+	<script type="text/x-handlebars" data-template-name="vvFBview">
+	<div class="vv-ContentContainer" id="vv-FBContainer">
+			<div class="grayBkgd-Arrow"></div>
+			<div class="top gradient-vertical-gray">
+				<div  id="FBmessage-container" class="fixed-width-column" >
+					{{{headerMessage}}}
+				</div>
+			</div>
+			
+			<div class="middle gradient-blk-radial">
+				<div class="fixed-width-column-bkgd" >
+					<div class="arrowPoint"></div>									
+
+					<div id="FB-state-container" class="fixed-width-column" >
+						
+						<div id="FB-state-submitted" >
+							<div class="large-LineBreak"></div>
+							<div class="FB-submitted-msg" >{{{submitted.msgtop}}}</div>
+							
+							<div id="submitted-counter-impressions-wrapper" class="submitted-counter-container" >
+								<!-- COUNTER -->
+								<div id="counter-impressions-submitted-box">
+								<div id="counter-impressions-submitted" class="flip-counter FB-counter" ></div>
+								</div>
+							</div>
+
+							<div class="FB-submitted-msg">{{{submitted.msgmid}}}</div>
+
+							<div id="submitted-counter-media-wrapper" class="submitted-counter-container" >
+								<!-- COUNTER -->
+								<div id="counter-media-submitted-box">
+									<div class="moneySymbolWhite" id="counterMediaSymbol"></div>
+									<div id="counter-media-submitted" class="flip-counter FB-counter" ></div>
+								</div>
+							</div>
+							
+							<div class="FB-submitted-msg">{{{submitted.msgbottom}}}</div>
+							<div class="large-LineBreak-white"></div>
+							<div class="FB-submitted-msg-footer">{{{submitted.msgfooter}}}</div>
+							<div class="small-LineBreak"></div>
+							<div id="FB-submit-donate" class="fb-state-button">{{submitted.donate}}<span id="FB-donate-btn-icon" class="fb-state-button-icon" ></span></div>
+						</div><!-- fb state thank you -->
+
+						<div id="FB-state-counter" >
+							<div id="FB-widgets" >
+								<div class="FB-widget">
+									<div class="FB-widget-label">
+										<img {{bindAttr src="postsIcon"}} class="FB-widget-label-img" />
+										<div class="FB-widget-copy">{{{postsCopy}}</div>
+									</div>
+									<div class="FB-widget-slider-container" id="FB-widget-slider-posts-container" >
+										<div class="FB-widget-slider" id="FB-slider-posts">
+											<div class="FB-slider-fill"></div>
+										</div>
+										<div class="FB-slider-amount" id="FB-slider-posts-amount" ></div>
+									</div>
+								</div>
+								<div class="FB-widget">
+									<div class="FB-widget-label">
+										<img {{bindAttr src="friendsIcon"}} class="FB-widget-label-img" />
+										<div class="FB-widget-copy">{{friendsCopy}}</div>
+									</div>
+									<div class="FB-widget-slider-container">
+										<div class="FB-widget-slider" id="FB-slider-friends">
+											<div class="FB-slider-fill"></div>
+										</div>					
+										<div class="FB-slider-amount" id="FB-slider-friends-amount" ></div>
+									</div>
+								</div>
+								<div class="FB-widget">
+									<div class="FB-widget-label">
+										<img {{bindAttr src="issuesIcon"}} class="FB-widget-label-img" />
+										<div class="FB-widget-copy">{{issuesCopy}}</div>
+									</div>
+									<div class="FB-widget-radioBoxes" id="FB-radioBoxes-issues" style="display:none;" >
+										{{#each issuesLabels}}
+											<div class="fb-radiobtn" >
+											    <input type="checkbox" {{bindAttr id="id"}} />
+											    <label {{bindAttr for="id"}} >
+												    <span {{bindAttr class="icon"}} ></span>
+												    <span class="fb-radiobtn-labelCopy">{{label}}</span>
+											    </label>
+											 </div>
+										{{/each}}
+									</div>
+								</div>
+								<span class="clear"></span>
+							</div>
+							<div class="large-LineBreak"></div>
+							<div id="FB-projectedCounters" >
+								<div class="left-column-container">
+									<div id="counter-media-container">
+										<div id="counter-media-title" class="FB-counter-title font-smallWhite" >{{mediaCounterLabel}}</div>
+										<div class="wrapper">
+											<div class="moneySymbolWhite" id="counterMediaSymbol"></div>
+											<div id="counter-media" class="flip-counter FB-counter" ></div>
+										</div>
+										
+									</div>
+									<span class="clear"></span>
+								</div>
+								<div class="right-column-container">
+									<div id="counter-impressions-container">
+										<div id="counter-impressions-title" class="FB-counter-title font-smallWhite" >{{impressionsCounterLabel}}</div>
+										<div id="counter-impressions" class="flip-counter FB-counter" ></div>
+										{{{bkgdCounterNumbers}}}
+										
+									</div>
+									<span class="clear"></span>
+								</div>
+							</div>
+							<div class="small-LineBreak"></div>
+							<div id="howThisWorksLink" class="fb-state-button" >{{howthisworks}}<span id="howThisWorksIcon" class="fb-state-button-icon" ></span></div>					
+						</div><!-- fb state counter -->
+
+						<div id="FB-state-infographic" >
+							<div id="infographic-image" ><img {{bindAttr src="infographicurl"}} width="1001" height="129"></div>
+							<div id="FB-info-columns">
+								{{#each infographicColumns}}
+								  <div class="FB-info-column" >
+								  	<div class="FB-info-title" >{{title}}</div>
+								  	<div class="FB-info-body" >{{{body}}}</div>
+								  </div>
+								{{/each}}
+								<span class="clear"></span>
+							</div>
+							<div class="small-LineBreak"></div>
+							<div id="FB-info-close" class="fb-state-button">{{closeInfographic}}<span id="FB-info-closeicon" class="fb-state-button-icon" ></span></div>
+						</div><!-- fb state info graphic how does it work -->
+					
+					</div><!-- fb state container -->
+
+				</div> <!-- fixed width column bkgd -->
+			<!-- end of middle -->	
+			</div>
+			
+			<div class="bottom">
+				<div class="fixed-width-column" >
+					<!-- Connect to FB -->
+					<div id="FB-big-btnContainer" >
+						<div id="FB-big-btn" class="btn-img bigbtn-state-connect" ></div>
+						<div id="FB-big-btn-back" class="btn-img bigbtn-state-back" ></div>
+					</div>
+					<div id="FB-connect-slit"></div>
+					<div id="FB-connect-shadow"></div>
+					
+				</div>
+			</div>
+	</div>
+	</script>
+	
+	<script type="text/x-handlebars" data-template-name="vvRecent">
+	<div class="vv-ContentContainer" id="vv-RecentContainer">
+		<div class="top"><!-- gradient-vertical-gray -->
+			<div class="fixed-width-column" >
+				<div id="RecentHeaderHeader">
+					<div class="font-subtitle-mini">{{{headerTitle}}}</div>
+					<div class="font-title">{{{headerCopy}}}</div>
+				</div>
+			</div>	
+		</div>
+		<div class="middle" >
+			<div class="fixed-width-column-bkgd" >
+				<div class="grayBkgd-Arrow"></div>
+				<div class="fixed-width-column" >
+					<div id="recents-carousel-container" >
+						<div id="recents-carousel" >
+							{{{youtubeListHTML}}}
+						</div>
+					</div>	
+					
+					<div id="recents-textPanel" style="display:none;" >
+						<div id="recent-panel-title" class="font-subTitle recent-panel-title" >
+							{{current.title}}
+						</div>
+						<div id="recent-panel-date" class="lightgrayFont" >
+							{{current.date}}
+						</div>
+						<div id="recent-panel-arrows">
+							<div id="recent-arrow-prev" class="btn-img" ></div>
+							<div id="recent-arrow-next" class="btn-img" ></div>
+							<span class="clear"></span>
+						</div>
+						<div id="recent-panel-description">
+							{{current.description}}
+							<div id="recent-gotochannel" class="btn-img" ></div>
+						</div>
+					</div>
+					
+					<span class="clear"></span>
+
+					<div id="recent-panel-bottom" >	
+						
+						<div id="recent-panel-correspondent" class="recent-bottom-column" >
+							<div class="recent-panel-subtitle greenFont ">Correspondent</div>
+							<div id="correspondent-box" class="recent-panel-box" >
+								<div id="correspondent-thumb"><img {{bindAttr src="current.correspondent.thumb"}} ></div>
+								<div id="correspondent-content">
+									<div id="correspondent-name" class="recent-panel-title">{{current.correspondent.name}}</div>
+									<div id="correspondent-location">{{current.correspondent.location}}</div>
+								</div>
+								
+								<span class="clear"></span>
+								
+								
+								
+								<div id="recent-panel-socialmedia" >
+									<div id="recent-subscribe" class="btn-img" ></div>
+									<div id="recent-twitter" class="btn-img" ></div>
+									<span class="clear"></span>
+								</div>
+								
+							</div>
+						</div>
+						
+						<div id="recent-panel-sharedby" class="recent-bottom-column" >
+							<div id="recent-panel-sharedby-title" class="recent-panel-subtitle greenFont">{{sharedbyTitle}}</div>
+							<div id="recent-panel-sharedby-photos">
+								{{#each current.sharedThumbs}}
+								  <img {{bindAttr src="url"}} />
+								{{/each}}
+							</div>
+							<span class="clear" ></span>
+						</div>
+						
+						
+						<div id="recent-panel-issues" class="recent-bottom-column" >
+							<div class="recent-panel-subtitle greenFont" >
+								Issues:
+							</div>
+							<div id="recent-panel-issues-container" class="recent-panel-box" >
+								<ul id="recent-panel-issues-list">
+									{{#each issues}}
+									  <li class='default recent-panel-title' >{{name}}</li>
+									{{/each}}
+								</ul>
+							</div>
+						</div>
+						
+						<div id="recent-panel-views" class="recent-bottom-column" >
+							<div class="recent-panel-subtitle greenFont" >
+							Views
+							</div>
+							<div id="recent-panel-views-count" class="recent-panel-title" >
+							{{current.viewcount}}
+							</div>
+						</div>
+
+						
+						
+						
+						
+					</div>
+				</div>
+			</div><!-- fixed width column bkgd -->
+		</div> <!-- end of middle -->
+		<!-- div class="bottom"></div -->
+	</div>
+	</script>	
+
+
+<!-- SCRIPTS -->	
+<?php 
+	echo $this->headScript();
+	echo $this->render('scripts.phtml'); 
+?>
+	

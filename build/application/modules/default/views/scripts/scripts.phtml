@@ -1,0 +1,101 @@
+<!--[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript" >
+	//------------------
+	//------------------ SETUP the site
+	//------------------
+	
+	//RESIZE detection
+	//$(window).resize(function(){
+	//	Debug.trace('resize');
+	//});
+	
+	
+	$(document).ready(function(){
+		
+		Debug.debug = <?php if($this->config->debug){
+														echo 'true';
+													}else{
+														echo 'false';
+													} ?>;
+		masterModel.root = '';//<?php echo $this->config->webhost; ?> // keep this empty unless loading from a sub folder.
+		masterModel.assets = '<?php echo $this->config->assetUrl; ?>';
+		
+		<?php if(isset( $this->FB ) ):?>
+			FbView.isConnected = true;
+			FbView.friendsValue = <?php echo $this->FB["totalfriends"]; ?>;
+			FbView.postsValueDB = <?php echo $this->FB["frequency"]; ?>;
+			FbView.issuesValue = '<?php echo $this->FB["issues_selected"]; ?>';
+			FbView.userFB = '<?php echo $this->FB["fbid"]; ?>';
+		<?php else: ?>
+			FbView.isConnected = false;
+		<?php endif; ?>
+		
+		VideoView.numberRaised = Math.round(<?php echo $this->totalMoneyRaised; ?>);
+		VideoView.numberPeople = <?php echo $this->totalNumberPeople; ?>;
+		
+
+		HeaderView.appendTo("#vvContentHolder");
+		VideoView.appendTo("#vvContentHolder");
+		FbView.appendTo("#vvContentHolder");
+		RecentView.appendTo("#vvContentHolder");
+
+	});
+	
+	function popupShare(url, title , w, h) {
+		if(!window.screenX && !window.screenY) {
+			window.screenX = window.screenLeft;
+			window.screenY = window.screenTop;
+		}
+		var popupPosition = {
+			x: (window.screenX + window.innerWidth / 2.0),
+			y: (window.screenY + window.innerHeight / 2.0)
+		};
+		
+		if( w==undefined ){ w = 550; }
+		if( h==undefined ){ h = 500;}
+		
+		var DEFAULT_POPUP_SHARING = 'menubar=0, resizable=0, location=0, toolbar=0, status=0, scrollbars=1, titlebar=0, left=' + (popupPosition.x - 225) + ', top=' + (popupPosition.y - 250) + ', width='+w+', height='+h;
+		window.open(url, title, DEFAULT_POPUP_SHARING);
+	}
+	
+	
+</script>
+
+
+
+<!-- FACEBOOK SETUP -->
+<div id="fb-root"></div>
+
+<script>
+	window.fbAsyncInit = function() {
+	
+	var appID = "<?php echo $this->config->facebookAppId; ?>";
+	FB.init({
+		appId : appID,
+  		//channelUrl : '//'+rootURL+'/channel.html', // Channel File
+  		status     : true, // check login status
+		cookie     : true, // enable cookies to allow the server to access the session
+		oauth      : true, // enable OAuth 2.0
+		xfbml      : true  // parse XFBML
+	});
+	
+	FB.Canvas.setAutoGrow({height:1995});
+	
+	};
+	
+</script>
+
+<!-- Script needed to render fbook like button -->
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=401484686557645";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+

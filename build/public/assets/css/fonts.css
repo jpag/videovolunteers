@@ -1,0 +1,66 @@
+@font-face {
+font-family: 'BrandonGrotesque-Bold';
+src: url('../fonts/brandon/Brandon_bld.eot');
+}
+@font-face {
+font-family: 'BrandonGrotesque-Bold';
+src: url('../fonts/brandon/Brandon_bld.woff') format('woff'),
+url('../fonts/brandon/Brandon_bld.svg#BrandonGrotesque-Bold') format('svg');
+}
+@font-face {
+font-family: 'BrandonGrotesque-MediumItalic';
+src: url('../fonts/brandon/Brandon_med_it.eot');
+}
+
+@font-face {
+font-family: 'BrandonGrotesque-MediumItalic';
+src: url('../fonts/brandon/Brandon_med_it.woff') format('woff'),
+url('../fonts/brandon/Brandon_med_it.svg#BrandonGrotesque-MediumItalic') format('svg');
+}
+
+
+/*
+@font-face {
+font-family: 'DIN-Bold';
+src: url('../fonts/din/DINPro-Bold.eot');
+}
+@font-face {
+font-family: 'DIN-Bold';
+src: url('../fonts/din/DINPro-Bold.woff') format('woff'),
+url('../fonts/din/DINPro-Bold.svg#DINPro-Bold') format('svg');
+}
+*/
+
+@font-face {
+font-family: 'DIN-Medium';
+src: url('../fonts/din/DINPro-Medium.eot');
+}
+@font-face {
+font-family: 'DIN-Medium';
+src: url('../fonts/din/DINPro-Medium.woff') format('woff'),
+url('../fonts/din/DINPro-Medium.svg#DINPro-Medium') format('svg');
+}
+
+/* this ends up being thicker then Medium */
+
+@font-face {
+font-family: 'DIN-Regular';
+src: url('../fonts/din/DINPro-Regular.eot');
+}
+
+@font-face {
+font-family: 'DIN-Regular';
+src: url('../fonts/din/DINPro-Regular.woff') format('woff'),
+url('../fonts/din/DINPro-Regular.svg#DINPro-Regular') format('svg');
+}
+
+@font-face {
+font-family: 'DIN-Light';
+src: url('../fonts/din/DINPro-Light.eot');
+}
+
+@font-face {
+font-family: 'DIN-Light';
+src: url('../fonts/din/DINPro-Light.woff') format('woff'),
+url('../fonts/din/DINPro-Light.svg#DINPro-Light') format('svg');
+}

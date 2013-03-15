@@ -1,0 +1,79 @@
+/*
+ * jQuery UI Slider 1.8.17
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Slider#theming
+ */
+.ui-slider { position: relative; text-align: left; }
+
+.ui-slider .ui-slider-handle { 
+	position: absolute; 
+	z-index: 2; 
+	cursor: pointer;
+	background-image: url("../../../../images/ui/slider-btn.png"); 
+	background-position: -7px 0px;
+	background-repeat: no-repeat;
+	width: 27px;
+	height: 65px;
+	overflow: hidden;
+	top: -26px;
+}
+
+	#FB-slider-friends .ui-slider-handle { 
+		background-image: url("../../../../images/ui/slider-btn-fb.png"); 
+		height: 110px;
+		width: 35px;
+		top: -46px;
+		background-position: -7px 0px;
+		/*background-position: -52px 0px;*/
+	}
+	
+	#FB-slider-friends .ui-state-hover{
+		background-position: -6px -110px;
+		/*background-position: -51px -110px;*/
+	}
+	
+	#FB-slider-friends .ui-state-active{
+		background-position: -6px -217px;
+		/*background-position: -51px -220px;*/
+		top: -49px;
+	}
+	
+	#FB-slider-friends .ui-slider-handle-disabled{
+		display: none;
+	}
+
+	
+#FB-slider-posts .ui-slider-handle { 
+	background-image: url("../../../../images/ui/slider-btn-post.png"); 
+	top:-23px;
+	/*margin-left:-12px;*/
+}
+
+.ui-slider .ui-state-hover{
+	/*background-position: -1px -32px;*/
+	background-position: -7px -65px;
+	top: -26px;
+}
+
+.ui-slider .ui-state-active {
+	background-position: -7px -130px;
+	top: -29px;
+}
+
+.ui-slider .ui-slider-range { position: absolute; z-index: 1; font-size: .7em; display: block; border: 0; background-position: 0 0; }
+
+.ui-slider-horizontal { height: .8em; }
+.ui-slider-horizontal .ui-slider-handle { /*top: -.3em;*/ margin-left: -.6em; }
+.ui-slider-horizontal .ui-slider-range { top: 0; height: 100%; }
+.ui-slider-horizontal .ui-slider-range-min { left: 0; }
+.ui-slider-horizontal .ui-slider-range-max { right: 0; }
+
+.ui-slider-vertical { width: .8em; height: 100px; }
+.ui-slider-vertical .ui-slider-handle { left: -.3em; margin-left: 0; margin-bottom: -.6em; }
+.ui-slider-vertical .ui-slider-range { left: 0; width: 100%; }
+.ui-slider-vertical .ui-slider-range-min { bottom: 0; }
+.ui-slider-vertical .ui-slider-range-max { top: 0; }

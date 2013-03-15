@@ -1,0 +1,9 @@
+<script type="text/javascript">
+	var user = <?php echo $this->userJson ?>;
+	
+	window.opener.FbView.fbconnectCallback(user);
+	
+	window.close();
+	
+</script>
+

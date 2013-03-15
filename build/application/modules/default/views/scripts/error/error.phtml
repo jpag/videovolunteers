@@ -1,0 +1,33 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6"> <![endif]--> <!--[if IE 7 ]>    <html lang="en" class="ie7"> <![endif]--> <!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]--> <!--[if IE 9 ]>    <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<?php echo $this->headTitle() ?>
+	<?php echo $this->headMeta() ?>
+	<?php echo $this->headLink(); ?>
+  	
+</head>
+<body>
+	<div id="errorMessage" >
+	  <h1>An error occurred</h1>
+	  <h2><?php echo $this->message ?></h2>
+		
+	  <?php if (isset($this->exception)): ?>
+	
+	  	<h3>Exception information:</h3>
+	  	<p><b>Message:</b> <?php echo $this->exception->getMessage() ?></p>
+	
+	  	<h3>Stack trace:</h3>
+	  	<pre><?php echo $this->exception->getTraceAsString() ?></pre>
+	
+		<h3>Request Parameters:</h3>
+	  	<pre><?php echo var_export($this->request->getParams(), true) ?></pre>
+	  <?php endif ?>
+	</div>
+	
+	<?php 
+		echo $this->render('trackingscript.phtml'); 
+	?>
+
+</body>
+</html>

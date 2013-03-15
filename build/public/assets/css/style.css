@@ -1,0 +1,1408 @@
+/* @group boilerplate */
+/* ==== Scroll down to find where to put your styles :) ==== */
+/*  HTML5 ✰ Boilerplate  */
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after,
+q:before, q:after { content: ''; content: none; }
+ins { background-color: #ff9; color: #000; text-decoration: none; }
+mark { background-color: #ff9; color: #000; font-style: italic; font-weight: bold; }
+del { text-decoration: line-through; }
+abbr[title], dfn[title] { border-bottom: 1px dotted; cursor: help; }
+table { border-collapse: collapse; border-spacing: 0; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+input, select { vertical-align: middle; }
+
+body { font:13px/1.231 sans-serif; *font-size:small; } 
+select, input, textarea, button { font:99% sans-serif; }
+pre, code, kbd, samp { font-family: monospace, sans-serif; }
+
+html { 
+	/*overflow-y: scroll; */
+	overflow: auto;
+}
+a:hover, a:active { outline: none; }
+ul, ol { margin-left: 2em; }
+ol { list-style-type: decimal; }
+nav ul, nav li { margin: 0; list-style:none; list-style-image: none; }
+small { font-size: 82%; }
+strong, th { font-weight: bold; }
+td { vertical-align: top; }
+
+sub, sup { font-size: 72%; line-height: 0; position: relative; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; padding: 15px; }
+textarea { overflow: auto; }
+.ie6 legend, .ie7 legend { margin-left: -7px; } 
+input[type="radio"] { vertical-align: text-bottom; }
+input[type="checkbox"] { vertical-align: bottom; }
+.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie6 input { vertical-align: text-bottom; }
+label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
+button, input, select, textarea { margin: 0; }
+input:valid, textarea:valid   {  }
+input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
+.no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
+
+::-moz-selection{ background: #f68020; color:#fff; text-shadow: none; }
+::selection { background:#f68020; color:#fff; text-shadow: none; }
+a:link { -webkit-tap-highlight-color: #f68020; }
+
+button {  width: auto; overflow: visible; }
+.ie7 img { -ms-interpolation-mode: bicubic; }
+
+body, select, input, textarea {  color: #444; }
+h1, h2, h3, h4, h5, h6 { font-weight: bold; }
+a, a:active, a:visited { color: #607890; }
+a:hover { color: #036; }
+
+
+/*
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+*/
+/* @end */
+
+/* @group GUI */
+
+input:focus {outline: none; }
+a:focus{outline: none; }
+
+body{
+	background: #f3f3f3;
+	font-size: 12px;
+	color: #333333;
+	font-family: "DIN-Medium", Arial, sans-serif;
+	font-smooth: always;
+}
+
+h1, h2, h3, pre{
+	font-family: "DIN-Medium", Arial, sans-serif;
+	color: #333333;;
+}
+
+.clear{	clear: both; }
+
+.greenBkgd{ 	background-color: #00b368; }
+.greenFont{ 	color: #0c707d; }
+.orangeBkgd{ 	background-color: #f15925; } /* f68020 */
+.orangeFont{	color: #f15925; } /* f68020 */
+.whiteFont{		color: #FFFFFF; }
+.blueFont{		color: #3e5a97; }
+.greyFont{	 color: #646464; }
+.lightgrayFont{ color:#9E9E9E; }
+
+.font-title-big{
+	font-size: 45px;
+	text-transform: uppercase;
+}
+.font-subtitle-mini{
+	font-size: 12px;
+	text-transform:uppercase;
+	font-family: "BrandonGrotesque-Bold", Arial, sans-serif;
+}
+
+.font-title{
+	font-family: "BrandonGrotesque-Bold", Arial, sans-serif;
+	font-size: 19px;/*21px;*/
+	text-transform: uppercase;
+}
+.font-numberBig{font-size: 24px; }
+.font-copyParagraph{
+	font-size: 13px;
+	line-height: 25px;
+}
+.font-mediumWeight{
+	font-size: 13px;
+	line-height: 19px;
+}
+.font-italic{
+	/* doesn't work */
+	font-family: "BrandonGrotesque-MediumItalic", Arial, sans-serif;
+}
+.font-subTitle{
+	font-size: 16px;
+	line-height: 24px;
+}
+.font-smallWhite{
+	font-size:12px;
+	color:#FFFFFF;
+	font-family: "DIN-Regular" , Arial, sans-serif;
+}
+.font-tinyWhite{
+	font-size:10px;
+	color:#FFFFFF;
+	font-family: "DIN-Regular" , Arial, sans-serif;
+}
+
+
+.btn-img{
+	cursor:pointer;
+	border:0px;
+	overflow: hidden;
+}
+
+.blackButton{
+	background: #3b3b3b; /* Old browsers */
+	background: -moz-linear-gradient(top, #3b3b3b 0%, #332f2e 50%, #2c2c2c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3b3b3b), color-stop(50%,#332f2e), color-stop(100%,#2c2c2c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #3b3b3b 0%,#332f2e 50%,#2c2c2c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #3b3b3b 0%,#332f2e 50%,#2c2c2c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #3b3b3b 0%,#332f2e 50%,#2c2c2c 100%); /* IE10+ */
+	background: linear-gradient(top, #3b3b3b 0%,#332f2e 50%,#2c2c2c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3b3b3b', endColorstr='#2c2c2c',GradientType=0 ); /* IE6-9 */
+	
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	color: #FFFFFF;
+	text-transform: uppercase;
+}
+.blackButtonBkgd{
+	background-image: url(../images/btn_shadow.png);
+	background-repeat: no-repeat;
+	background-size: 100%;
+}
+
+
+.gradient-blk-radial{
+	background: #232323;
+	border-top:4px solid #000000;
+	border-bottom:4px solid #000000;
+}
+
+.gradient-vertical-gray{
+	background: #e9e9e9; /* Old browsers */
+	background: -moz-linear-gradient(top, #e9e9e9 0%, #f3f3f3 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e9e9e9), color-stop(100%,#f3f3f3)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #e9e9e9 0%,#f3f3f3 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #e9e9e9 0%,#f3f3f3 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #e9e9e9 0%,#f3f3f3 100%); /* IE10+ */
+	background: linear-gradient(top, #e9e9e9 0%,#f3f3f3 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e9e9e9', endColorstr='#f3f3f3',GradientType=0 ); /* IE6-9 */
+}
+
+.moneySymbolWhite,
+.moneySymbolBlack{
+	width: 18px;
+	height: 33px;
+	position: relative;
+	float: left;
+	display: inline;
+	margin-top: 11px;
+	margin-right: 6px;
+}
+
+.moneySymbolBlack{
+	background-image: url("../images/icons/moneySymbol_black.png");
+}
+.moneySymbolWhite{
+	width:16px;
+	height:28px;
+	margin-top:13px;
+	background-image: url("../images/icons/moneySymbol_white.png");
+}
+
+
+.large-LineBreak, .small-LineBreak, .large-LineBreak-white{
+	height:21px;
+	background-repeat:no-repeat;
+	position: relative;
+	margin: auto;
+}
+.large-LineBreak{
+	background-image:url("../images/ui/shadow-raised.png");
+	width:738px;
+}
+
+.small-LineBreak{
+	background-image:url("../images/ui/shadow-raised-sml.png");
+	width:289px;
+}
+.large-LineBreak-white{
+	background-image:url("../images/ui/beveled-white.png");
+	width:1168px;
+	height:1px;
+}
+	/* @group layout */
+	/* basic alignment classes to be used within a larger div 
+		helps to manage the div into sections positions properly etc.
+	*/
+	
+	
+	.fixed-width-column-bkgd{
+		position: relative;
+		margin: auto;
+		min-width: 960px;
+		/* height and width should be defined based 
+		off of the background image loaded in */
+	}
+	
+	.fixed-width-column{
+		width: 960px;
+		margin: auto;
+		position: relative;
+	}
+	
+	.top, .middle, .bottom{
+		display: block;
+		position: relative;
+	}
+	
+	.left-column-container{
+		width: 460px;
+		margin-right: 20px;
+		position: absolute;	
+	}
+	.right-column-container{
+		position: absolute;
+		left: 480px;
+		width: 470px;
+		margin-left: 10px;
+	}
+	/* @end */
+	
+	.arrowPoint{
+		background-image: url("../images/ui/header_arrowpointer.png");
+		width: 28px;
+		height: 15px;
+		margin: auto;
+		background-repeat: no-repeat;
+		position: relative;
+		top: -4px;
+	}
+	
+/* @end */
+
+/* VIEWS ----- */
+
+#vvContentHolder{
+	width: 100%;
+	height: auto;
+	margin: auto;
+	position: relative;
+}
+
+.vv-ContentContainer{
+	display: block;
+	position: relative;
+	clear: both;
+}
+
+/* @group header */
+#vv-Header{
+	background-color: #eaeaea;
+	background: url("../images/bkgds/topHeader-repeat.png");
+	background-repeat: repeat-x;
+	height: 145px;/*184px;*/
+	top: 0px;
+}
+	
+	#vv-Header .fixed-width-column{
+		background: url("../images/bkgds/topheader.png");
+		background-repeat: no-repeat;
+		/*background-position: -22px 0px;*/
+		height: 175px;
+		width:1075px;
+	}
+	
+	#vv-Header-content{
+		position:relative;
+		width: 800px;
+		margin: auto;
+		padding-top: 29px;
+	}
+	
+	#vv-Header img{
+		position: relative;
+		float: left;
+		width: 100px;
+	}
+	#headerMessage{
+		position: relative;
+		float: left;
+		width: 480px;
+		margin-left: 75px;
+		margin-top: 18px;
+		font-family: "DIN-Light" , Arial, sans-serif;
+		line-height: 21px;
+		text-align: center;
+	}
+
+	#fb-like-btn{
+		width:225px;
+		position: absolute;
+		top:43px;
+		right:-295px;
+	}
+	
+	#fb-like{
+		top:10px;
+		margin-left: 75px;
+	
+	}
+
+/* @end */	
+
+/* @group */
+#vv-Intro{
+
+}	
+	#vv-Intro .middle{
+		padding-top: 40px;
+		height: 595px;
+		position: relative;			
+		background: #f2f2f2;
+	}
+	
+	#introVideoTitle, 
+	#introVideoSubTitle{
+		text-align: center;
+	}
+	#introVideoSubTitle{
+		margin-bottom: 25px;
+	}
+	
+	#introVideo{
+		position: relative;
+		margin: auto;
+		width: 780px;
+		height: 466px;
+		border:1px solid #e6e6e6;
+		background-image:url("../images/bkgds/video_splashscreen.jpg");
+	}
+		#introVideo-playBtn{
+			position: relative;
+			margin: auto;
+			width:100px;
+			height:31px;
+			background-image:url("../images/ui/video-playbtn.png");
+			top:330px;
+		}
+		#introVideo-playBtn:hover{
+			background-position:0px -31px;
+		}
+
+	/* @group counter money */	
+	#introTicker{
+		width: 585px;/*660px*/
+		position: relative;
+		margin: auto;
+		margin-top: 30px;
+		height: 75px;
+	}
+		#introTicker #message{
+			display: inline;
+			height: auto;
+			position: relative;
+			float: left;
+			text-align: right;
+			padding-right: 15px;
+			padding-top: 6px;
+			/* 
+			letter-spacing:1px;
+			*/
+			font-size:12px;
+			text-transform:uppercase;
+			font-family:"BrandonGrotesque-Bold" , Arial;
+			line-height:17px;
+		}
+
+		#introTicker #counterContainer{
+			position: relative;
+			height: 58px;
+			width: 264px; /* this may change.. allows for 6 figures */
+			float: left;
+		}
+		
+		#counterMoneySymbol{}
+		#introTicker #counter-totalMoney{
+			position: relative;
+			float: right;
+			display: inline;
+		}
+		#introTicker #counterSubline{
+			background-image: url("../images/inFBmedia-2line.png");
+			width: 85px;
+			height: 36px;
+			position: relative;
+			float: left;
+			background-repeat: no-repeat;
+			margin-top: 4px;
+			margin-left: 10px;
+		}
+		
+		#videoCounterZeros{
+			position: absolute;
+			left: 24px;
+			/*top: 0px;*/
+		}
+		
+		#submitted-counter-media-wrapper , #submitted-counter-impressions-wrapper{
+			position: relative;
+			margin: auto;
+			/*width: 240px;*/
+		}
+		#submitted-counter-impressions-wrapper{
+			width:240px; /*202px;*/
+		}
+		#submitted-counter-media-wrapper{
+			width:164px;
+		}
+
+		#counter-media-submitted-zeros,#counter-impressions-submitted-zeros
+		{
+			float: right;
+		}
+		
+		#counter-media-submitted , #counter-impressions-submitted {
+			float: right;
+		}
+		
+		#counter-media-submitted-box , #counter-impressions-submitted-box{
+			position: absolute;
+			float: right;
+			overflow: visible;
+			width: 100%;
+		}
+		
+		#counterMediaSymbol{
+			position: absolute;
+			left: -30px;
+		}
+		
+		/* @end */
+	#vv-FBContainer{
+		
+	}
+	
+	#vv-FBContainer .top{
+		padding-bottom: 17px;/*20px;*/
+		overflow: hidden;
+		height:126px;
+		border-top:1px solid #E1E1E1;
+	}
+		.grayBkgd-Arrow{
+			width:662px;
+			height:21px;
+			top:21px;
+			position: relative;
+			margin: auto;
+			background-image:url("../images/ui/header_arrowPointer_raised.png");
+			background-repeat:none;
+		}
+		
+
+		#FBmessage-container{
+			top:33px;/* on start */
+		}
+
+		#FBsmallTitle, #FBTitle, #FBDescription{
+			text-align:center;
+		}
+		#FBTitle{
+			padding-bottom:7px;
+		}
+
+	#vv-FBContainer .middle, 
+	#vv-FBContainer .middle .fixed-width-column-bkgd,
+	#FB-state-container {
+		height: 460px;	/*409px;400px;*/
+	}
+
+		#vv-FBContainer .middle	.fixed-width-column-bkgd{
+			max-width: 1393px;
+			background-image: url('../images/bkgds/lightoverlay.png');
+			background-repeat: no-repeat;
+		}
+		
+		#vv-FBContainer .middle	.fixed-width-column{}
+		
+		#FB-state-container{
+			position: relative;
+			overflow: hidden;
+			top:-15px;
+		}	
+
+
+		#FB-state-submitted, #FB-state-counter, #FB-state-infographic{
+			position: absolute;
+			width:960px;
+		}
+		/* @group submitted page */
+			.FB-submitted-msg,
+			.FB-submitted-msg-footer{
+				font-size:16px;
+				color:#C5C5C5;
+				font-family:"DIN-Regular", Arial, sans-serif;
+				text-align:center;
+				padding-bottom:20px;
+			}
+			.FB-submitted-msg-footer{
+				font-size:12px;
+				padding-top:14px;
+				padding-bottom:14px;
+			}
+			#FB-submit-donate{
+				width:106px;
+				top:-10px;
+			}
+
+			.ie #FB-submit-donate{
+				width:110px;
+			}
+
+			.ie #FB-submit-donate{
+				width:117px;
+			}
+
+			.FB-donate-btn-icon{}
+
+			.submitted-counter-container{
+				position: relative;
+				height:60px;
+				width:100%;
+				padding-bottom:15px;
+			}
+
+			
+
+		/* @end */
+		/* @group infographic state */
+		#FB-state-infographic{
+			
+		}
+
+		#infographic-image{
+			margin-top:55px;
+			left:12px;
+			position: relative;
+		}
+		#FB-info-columns{
+			position: relative;
+			left:86px;
+			height:170px;
+		}
+			.FB-info-column{
+				float:left;
+				position: relative;
+				width:152px;
+				margin:0px 10px 0px 0px;
+			}
+			.FB-info-title, .FB-info-body{
+				color: #FFFFFF;
+				text-align: center;
+				font-family:"DIN-Regular", Arial, sans-serif;
+			}
+			.FB-info-title{
+				font-size:20px;
+				padding-top:20px;
+				padding-bottom:15px;
+			}
+			.FB-info-body{
+				line-height:18px;
+				font-size:12px;
+			}
+
+			.FB-info-body a{
+				color:#FFFFFF;
+				text-decoration:underline;
+			}
+			.FB-info-body a:hover{
+				color:#CCCCCC;
+				text-decoration:none;
+			}
+		/* @end */
+
+		/* @group fb setup state */
+
+		#FB-widgets{
+			position: relative;
+			height: 200px;
+			padding-top: 20px;
+		}	
+			.FB-widget{
+				width:320px;
+				height: auto;
+				float: left;
+				position: relative;
+				color: #e9e9e9;
+				margin-top: 22px;
+			}
+			.FB-widget-label{
+				height: 75px;
+				padding-bottom:6px;
+			}
+				.FB-widget-label-img{
+					width: 65px;
+					height: 65px;
+					position: relative;
+					float: left;					
+				}
+				.FB-widget-copy{
+					position: relative;
+					float: left;
+					padding-left: 12px;
+					width: 230px;/* 320-(img.width+padding-left) */
+					top: 13px;
+					font-size: 16px;
+					font-family: "DIN-Medium" , Arial, sans-serif;
+				}
+			/* @group slider */	
+			.FB-widget-slider{
+				position: relative;
+				margin: auto;
+				margin-top: 5px;
+				background-color: none;
+				border: none;
+				background-image: url("../images/ui/slider-bg.png");
+				background-repeat: no-repeat;
+				width: 226px;
+				height: 16px;			
+			}
+
+			#FB-widget-slider-posts-container{
+				position: relative;
+				left:-21px;
+			}
+
+			#FB-slider-posts{
+				background-image: url("../images/ui/slider-bg-posts.png");
+				background-position:4px 0px;
+				top:-4px;
+				height:23px;
+			}
+			
+				.FB-slider-amount{
+					text-align: center;
+					margin: auto;
+					width: auto;
+					margin-top: 15px;
+					font-size:20px;
+					font-family:"DIN-Regular", sans-serif;
+					letter-spacing:1px;
+				}
+				.FB-slider-fill{
+					background-repeat: no-repeat;
+					height: 16px;
+					overflow: hidden;
+					width: 50%;
+					position: absolute;
+				}
+				#FB-slider-posts .FB-slider-fill{
+					background-image: url("../images/ui/slider-full.png");
+					top:3px;
+				}
+				#FB-slider-friends .FB-slider-fill{
+					background-image: url("../images/ui/slider-full-fb.png");
+				}
+				#FB-slider-friends .FB-slider-fill-disabled{
+					background-image: url("../images/ui/slider-full-fb-locked.png");
+				}
+				
+		
+			/* @end */
+				
+			/* @group fb counter	*/
+			#FB-projectedCounters{
+				position: relative;
+				height:115px;
+			}
+				.FB-counter-container{ }
+				.FB-counter-title{ 
+					padding-bottom: 7px;
+					white-space:nowrap;
+				}
+				.FB-counter{
+					height:56px;/*104px;*/
+					position:relative;
+					overflow: hidden;
+					padding-bottom: 5px
+				}
+				.FB-counter-key{
+					position:absolute;
+					display:block;
+					width:100%;
+					top: 80px;
+					left: 0px;
+					text-align:right;
+				}
+					#counter-media-container{ 
+						overflow:visible;
+						position:relative;
+						float:right;
+						/*width:240px;*/
+						width:164px;
+					}
+					
+					#counter-media-container .moneySymbolWhite{
+						position: absolute;
+						left: -20px;
+					}
+					
+					#counter-media-title{
+						position:relative;
+						/*width:100%;*/
+						float:right;
+						text-align: right;
+					}
+					#counter-media{ float:right;}
+					#counter-media-key{	}
+					#counter-media-container .wrapper{
+						width:100%;
+						height:100%;
+						position:relative;
+						float:right;
+					}
+					#counter-impressions-container{	
+						width: 240px;/*202px;*/
+					}
+					#counter-impressions-title{	}
+					#counter-impressions{ float:right }
+					#counter-impressions-key{ 
+						width: 240px;
+					}
+					
+					
+					#mediaCounterZeros,
+					#impressionsCounterZeros{
+						position: absolute;
+						top: 21px;
+						left: 0px;
+					}
+					
+			/* @end */	
+		
+
+			/* @group fbradiobuttons	 */
+				#FB-radioBoxes-issues{
+					left: 4px;
+					position: relative;
+				}
+				
+				.fb-radiobtn{
+					position:relative;
+					float:left;
+					display:inline;
+					height:35px;
+				}
+				.fb-radiobtn input{
+					
+				}
+				
+				/*DEFAULT */
+				.ui-button-text-only{
+					background: none;
+					border: none;
+					/*color: #6a6a6a;*/
+				}
+				
+				/* SELECTED ACTIVE */
+				.ui-state-active,
+				.ui-state-active .ui-state-hover,
+				.ui-button-text-only .ui-state-active{
+					color: #FFFFFF;	
+				}
+				
+				/* ON HOVER */
+				.ui-state-hover,
+				.ui-button-text-only .ui-state-hover,
+				.ui-button-text-only .ui-state-active .ui-state-hover{
+					/*color: #CCCCCC;*/
+				}
+				
+				.fb-radiobtn .issuesButton{
+					background-image: url('../images/ui/fb-widget-radiobtns-green.png');
+					width: 25px;
+					height: 32px;
+					overflow: hidden;
+					position: relative;
+					float: left;
+					top: -7px;
+				}
+				
+				.ui-state-hover .issuesButton{
+					background-position: 0px -32px;
+				}
+				
+				.ui-state-hover:active .issuesButton,
+				.ui-state-active .issuesButton{
+					background-position: 0px -64px;
+				}
+				
+				.ui-state-active:hover .issuesButton{
+					background-position: 0px -96px;
+				}
+				
+				
+				.fb-radiobtn-labelCopy{
+					float: left;
+					position: relative;
+					left: 0px;
+					font-family: "DIN-Regular", Arial, sans-serif;
+					margin-right:15px;
+					margin-left:5px;
+				}
+				
+			/* @end */
+	/* @end */
+
+
+	.fb-state-button{
+		text-transform:uppercase;
+		color:#FFFFFF;
+		font-family:"DIN-Regular", Arial, sans-serif;
+		position: relative;
+		margin:auto;
+		font-size:10px;
+
+		position: relative;
+
+        text-shadow: 1px 1px 2px #000000;
+        filter: dropshadow(color=#000000, offx=1, offy=1);
+        letter-spacing:1.75px;
+
+        cursor:pointer;
+
+        top:-12px;
+        
+        overflow: visible;
+        white-space: nowrap;
+        width: 120px;
+	}
+
+	#howThisWorksLink{
+		width:120px;
+		
+	}
+	.ie #howThisWorksLink{
+		width:133px;
+	}
+
+	.fb-state-button-icon{
+		background-repeat:no-repeat;
+		display: inline-block;
+		position: relative;
+		margin-left:6px;
+		top:4px;
+		
+	
+	}
+
+	#howThisWorksIcon{
+		background-image:url("../images/ui/arrow-icon.png");
+		width:15px;
+		height:15px;
+	}
+	
+	
+	#FB-info-close{
+		width:57px;
+	}
+	.ie #FB-info-close{
+		width:63px;
+	}
+	#FB-info-closeicon,
+	#FB-donate-btn-icon{
+		width:15px;
+		height:15px;
+	}
+	
+	#FB-info-closeicon{
+		background-image:url("../images/ui/close-icon.png");
+	}
+	
+	#FB-donate-btn-icon{
+		background-image:url("../images/ui/cashicon.png");
+		top: 3px;
+		left: -3px;
+	}
+
+	.fb-state-button:hover{
+		color:#CCCCCC;
+	}
+	.fb-state-button:hover .fb-state-button-icon{
+		background-position:0px -15px;
+	}
+
+	#vv-FBContainer .bottom{
+		background-color: ##F2F2F2;
+		height:50px;
+	}
+	
+	#vv-FBContainer .bottom .fixed-width-column{
+		top:-53px;
+	}
+	
+	#FB-big-btnContainer{
+		width:300px;
+		height:65px;
+		margin: auto;
+		position: relative;
+		overflow:hidden;
+		top: 4px;
+	}
+	
+	#FB-big-btn, #FB-big-btn-back{
+		position: absolute;/*relative;*/
+		top: 18px;
+		width:300px;
+		height:65px;
+		
+		-webkit-transition: top 300ms cubic-bezier(0.485, 0.205, 0.235, 0.835); 
+		   -moz-transition: top 300ms cubic-bezier(0.485, 0.205, 0.235, 0.835); 
+		    -ms-transition: top 300ms cubic-bezier(0.485, 0.205, 0.235, 0.835); 
+		     -o-transition: top 300ms cubic-bezier(0.485, 0.205, 0.235, 0.835); 
+		        transition: top 300ms cubic-bezier(0.485, 0.205, 0.235, 0.835); /* custom */;
+		
+	}
+
+
+	.bigbtn-state-connect{
+		background-image:url('../images/ui/bigbutton-connect.png');
+	}
+	.bigbtn-state-back{
+		background-image:url('../images/ui/bigbutton-goback.png');	
+	}
+	.bigbtn-state-save{
+		background-image:url('../images/ui/bigbutton-savesettings.png');	
+	}
+	#FB-big-btn:hover, #FB-big-btn-back:hover{
+		/*background-position:0px 65px;*/
+		top: 12px;	
+	}
+	
+	#FB-connect-slit{
+		background-image: url("../images/ui/buttonSlit.png");
+		width: 328px;
+		height: 27px;
+		top: -8px;
+		margin: auto;
+		position: relative;
+		overflow: none;
+	}
+	
+	#FB-connect-shadow{
+		background-image: url("../images/ui/bigbtn_shadow.png");
+		width: 381px;
+		height: 16px;
+		position: relative;
+		margin: auto;
+		top: -39px;
+	}
+	
+	
+
+/* @group recentVideo */
+	#vv-RecentContainer{
+		
+	}
+	#vv-RecentContainer .top{
+		height:94px;
+	}
+	#RecentHeaderHeader{
+		/*background-image:url("../images/ui/shadow-raised.png");*/
+		background-repeat:no-repeat;
+		padding-top:28px;
+		width:738px;
+		position: relative;
+		margin:auto;
+		
+	}
+	#RecentHeaderHeader div{
+		text-align: center;
+	}
+	#vv-RecentContainer .middle{
+		border-top:1px solid #DCDCDC;
+		
+	}
+	
+	#vv-RecentContainer .middle	.fixed-width-column-bkgd{
+		max-width: 2060px;
+		height: 858px;
+		
+		background-image:url('../images/bkgds/bottom-map.png');
+		background-repeat:no-repeat;
+		padding-bottom:50px;
+
+	}
+	
+	#vv-RecentContainer .middle	.fixed-width-column{ 
+		top: 30px;
+	}
+	
+	#vv-RecentContainer .grayBkgd-Arrow{
+		top:-1px;
+	}
+
+	/* @group carousel */
+	#recents-carousel-container,
+	#recents-carousel,
+	.recents-youtubeItem{
+		width: 633px;
+		height: 360px;
+	}
+
+	#recents-carousel-container{
+		overflow: hidden;
+		position: relative;
+		float: left;
+	}
+		#recents-carousel{
+			position: absolute;
+			left: 0px;
+		}
+			.recents-youtubeItem{
+				position: relative;
+				float: left;
+			}
+		
+		#recents-textPanel{
+			position: relative;
+			float: left;
+			margin-left: 20px;
+			width: 307px;
+		}	
+			.recent-panel-title{
+				font-family: "DIN-Regular" , Arial, sans-serif;
+				font-size: 20px;
+				text-align: left;
+				min-height: 10px;
+				position: relative;
+			}
+			.recent-panel-subtitle{
+				font-family: "DIN-Regular" , Arial, sans-serif;
+				font-size: 14px;
+				padding-bottom: 15px;
+				padding-top:25px;
+				position: relative;
+				text-transform: uppercase;
+			}
+			
+			#recent-panel-date{
+				margin-top:10px;
+				margin-bottom: 13px;				
+				/*text-transform: uppercase;*/
+				font-size: 11px;
+				text-align: left;
+				min-height: 10px;
+				position: relative;
+			}
+			#recent-panel-arrows{
+				height: 30px;
+				width: 250px;			
+				margin-top:5px;
+				position: relative;
+			}			
+				#recent-arrow-prev, #recent-arrow-next{
+					width: 102px;
+					height: 27px;
+					position: relative;
+					display: inline;
+				}
+				#recent-arrow-prev{float: left;}
+				#recent-arrow-next{float: right;}
+				
+				#recent-arrow-prev{
+					background-image: url("../images/ui/btn-recents-older.png");
+					margin-right: 5px;
+				}
+				#recent-arrow-next{
+					background-image: url("../images/ui/btn-recents-newer.png");
+				}
+			#recent-panel-description{
+				padding-top:10px;
+				position: relative;
+				line-height: 18px;
+			}
+			
+			#recent-gotochannel{
+				background-image:url("../images/ui/btn-recents-gotochannel.png");
+				width:112px;
+				height:27px;
+				margin-top:15px;
+			}
+
+		#recent-arrow-prev:hover, #recent-arrow-next:hover, #recent-gotochannel:hover{ background-position: 0px -27px;}
+		#recent-arrow-prev:active, #recent-arrow-next:active, #recent-gotochannel:active{background-position: 0px -54px;}
+		#recent-panel-arrows .disabled{background-position: 0px -81px;}
+		
+
+		#recent-panel-divider{
+			width: 100%;
+			height: 0px;
+			position: relative;
+			border-top: 1px solid #2b2b2b;
+			border-bottom: 1px solid #505050;
+			margin-bottom: 9px;
+		}
+		
+		#recent-panel-bottom{
+			position: relative;
+			float:left;
+			display:block;
+			width:100%;
+			height:400px;
+		}
+
+		/* @group panel boxes */
+		.recent-panel-box{
+			/*
+			margin-top: 3px;
+			margin-bottom: 2px;
+			padding:10px;
+			
+			background-color: #161616;
+			-webkit-border-radius: 3px;
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+			border-bottom: 1px solid #434343;
+			
+			min-height: 95px;
+			height: auto;
+			*/
+		}			
+		
+		.recent-bottom-column{
+			position: relative;
+			float: left;
+			display: inline;
+			margin-right: 62px;
+		}
+
+		#recent-panel-issues{
+			width: 190px;
+		}
+			#recent-panel-issues-container{
+				
+			}
+			#recent-panel-issues-container ul , #recent-panel-issues-container li{
+				list-style-type: none;
+				margin: 0px;
+				line-height: 28px;
+				cursor: default;
+			}
+			#recent-panel-issues-container .default{
+				color: #646464;
+			}
+			#recent-panel-issues-container .default:hover{
+				color: #777777;
+			}
+			#recent-panel-issues-container .orangeFont:hover{
+				color:#ec8100;
+			}
+			#recent-panel-issues-list{
+				
+			}
+
+		#recent-panel-correspondent{
+			width: 250px;
+		}
+		
+			#correspondent-box{ 
+					position: relative;	
+					height:auto;
+			}
+			#correspondent-thumb, #correspondent-thumb img{
+				height: 59px; /* same as height of thumbnail */
+			}
+			#correspondent-thumb{
+				background-image: url("../images/icons/default_user_thumb.jpg");
+				height: 59px;
+			}
+			
+			#correspondent-thumb, #correspondent-thumb img{
+				width: 59px;
+				position: relative;
+				float: left;
+			}
+			#correspondent-content{
+				position: relative;
+				float: left;
+				margin-left: 10px;
+			}
+				#correspondent-name{
+					margin-bottom: 3px;
+				}
+			
+			#recent-panel-socialmedia{
+				position: relative;
+				height: 60px;
+				width:220px;
+				
+				clear: both;
+				float: left;
+				margin-top:15px;
+			}
+			
+				#recent-twitter, #recent-subscribe{
+					width: 102px;
+					height: 27px;
+					margin-bottom:7px;
+					position: relative;
+					display: inline;
+					float: left;
+				}
+				#recent-twitter:hover, #recent-subscribe:hover{
+					background-position: 0px -27px;
+				}
+				#recent-twitter:active, #recent-subscribe:active{
+					background-position: 0px -54px;
+				}
+				#recent-twitter{
+					background-image: url("../images/ui/btn-follow.png");
+					
+				}
+	
+			#recent-subscribe{
+				background-image: url("../images/ui/btn-subscribe.png");
+				margin-right: 10px;
+			}
+		
+		#recent-panel-views{
+			margin: 0 0 0 -30px;
+		    overflow: visible;
+		    white-space: nowrap;
+		    width: 40px;
+		}
+		
+		#recent-panel-sharedby{
+			width: 280px;			
+		}
+
+			#recent-panel-sharedby-title{
+				margin-bottom: 5px;
+			}
+			#recent-panel-sharedby-photos img{
+				position: relative;
+				float: left;
+				width: 30px;
+				height: 30px;
+				overflow: hidden;
+				padding-right: 3px;
+				padding-bottom: 3px;
+			}
+		/* @end */	
+
+		#vv-RecentContainer .bottom{
+			/*height:100px;*/
+		}
+	/* @end */
+	
+/* @end */	
+
+
+
+
+
+
+/* @group z-indexes */
+	#vv-Header{
+		z-index: 3;
+	}
+	#vv-Intro{
+		z-index: 2;
+	}
+	#vv-FBContainer{
+		z-index:4;
+	}
+	#vv-RecentContainer{
+		z-index: 5;
+	}
+	
+	.flip-counter{
+		z-index:2;
+	}
+	.counter-bkgdZeros{
+		z-index: 1;	
+	}
+	
+	.grayBkgd-Arrow{
+		z-index:19;
+	}
+
+	#FB-connect-slit{
+		z-index: 20;
+	}
+	#FB-connect-shadow{
+		z-index: 23;
+	}
+	#FB-big-btn{
+		z-index: 25;
+	}
+	#FB-big-btn-back{
+		z-index:26;
+	}
+
+	#vv-Header img{
+		z-index:120;
+	}
+	#headerMessage{
+		z-index: 100;
+	}
+	
+	.arrowPoint{
+		z-index:500;
+	}
+/* @end */
+	
+	
+/*
+------------------------------------------------------------
+------------------------------------------------------------
+------------------------------------------------------------
+*/
+
+.ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }
+.hidden { display: none; visibility: hidden; }
+.visuallyhidden { border: 0; clip: rect(0 0 0 0); height: 1px; margin: -1px; overflow: hidden; padding: 0; position: absolute; width: 1px; }
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
+.invisible { visibility: hidden; }
+.clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
+.clearfix:after { clear: both; }
+.clearfix { zoom: 1; }
+
+@media all and (orientation:portrait) {}
+@media all and (orientation:landscape) {}
+@media screen and (max-device-width: 480px) {
+  /* html { -webkit-text-size-adjust:none; -ms-text-size-adjust:none; } */
+}
+@media print {
+  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  -ms-filter: none !important; } 
+  a, a:visited { color: #444 !important; text-decoration: underline; }
+  a[href]:after { content: " (" attr(href) ")"; }
+  abbr[title]:after { content: " (" attr(title) ")"; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  
+  pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
+  thead { display: table-header-group; }
+  tr, img { page-break-inside: avoid; }
+  @page { margin: 0.5cm; }
+  p, h2, h3 { orphans: 3; widows: 3; }
+  h2, h3{ page-break-after: avoid; }
+}
